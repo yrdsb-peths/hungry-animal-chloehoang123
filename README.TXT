@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: Hungry Animal
+PURPOSE OF PROJECT: Move Animal
+VERSION or DATE: April 29, 2022
+HOW TO START THIS PROJECT: Create an animal
+AUTHORS: Chloe Hoang
+USER INSTRUCTIONS: Create an animal and make it move
