@@ -14,6 +14,30 @@ public class Dolphin extends Actor
      */
     public void act()
     {
-        move(1);
+        if(Greenfoot.isKeyDown("up"))
+        {
+            setLocation(getX(), getY()-5);
+        }
+        
+        if(Greenfoot.isKeyDown("down"))
+        {
+            setLocation(getX(), getY()+5);
+        }
+        
+        if(Greenfoot.isKeyDown("left"))
+        {
+            setLocation(getX()-5, getY());
+        }
+        
+        if(Greenfoot.isKeyDown("right"))
+        {
+            setLocation(getX()+5, getY());
+        }
+        
+        if(isTouching(Strawberry.class))
+        {
+            removeTouching(Strawberry.class);
+        }
+        
     }
 }
