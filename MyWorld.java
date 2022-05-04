@@ -17,8 +17,11 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        dolphin();
-        strawberry();
+        
+        Dolphin dolphin = new Dolphin();
+        addObject(dolphin,300, 350);
+        
+        spawnStrawberry();
         
     }
 
@@ -26,15 +29,12 @@ public class MyWorld extends World
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    private void dolphin()
-    {
-        Dolphin dolphin = new Dolphin();
-        addObject(dolphin,200,250);
-    }
     
-    private void strawberry()
+    public void spawnStrawberry()
     {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
         Strawberry strawberry = new Strawberry();
-        addObject(strawberry,300,-400);
+        addObject(strawberry, x, y);
     }
 }

@@ -14,30 +14,27 @@ public class Dolphin extends Actor
      */
     public void act()
     {
-        if(Greenfoot.isKeyDown("up"))
+        if(Greenfoot.isKeyDown("a"))
         {
-            setLocation(getX(), getY()-5);
+            move(-2);
         }
         
-        if(Greenfoot.isKeyDown("down"))
+        if(Greenfoot.isKeyDown("d"))
         {
-            setLocation(getX(), getY()+5);
+            move(2);
         }
         
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("space"))
         {
-            setLocation(getX()-5, getY());
+            turn(2);
         }
-        
-        if(Greenfoot.isKeyDown("right"))
-        {
-            setLocation(getX()+5, getY());
-        }
-        
+    
+        //Eat the strawberry
         if(isTouching(Strawberry.class))
         {
             removeTouching(Strawberry.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnStrawberry();
         }
-        
     }
 }

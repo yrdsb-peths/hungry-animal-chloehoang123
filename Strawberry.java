@@ -15,6 +15,6 @@ public class Strawberry extends Actor
     
     public void act()
     {
-        setLocation (getX(), getY()+7);
+        setLocation (getX(), getY()+2);
     }
 }
