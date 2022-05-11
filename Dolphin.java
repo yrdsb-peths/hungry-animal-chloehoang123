@@ -34,6 +34,7 @@ public class Dolphin extends Actor
         {
             removeTouching(Strawberry.class);
             MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
             world.spawnStrawberry();
         }
     }
