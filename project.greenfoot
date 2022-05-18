@@ -1,6 +1,7 @@
 #Greenfoot project file
 class.Dolphin.image=dolphin.png
 class.Label.image=yellow-draught-king.png
+class.MyWorld.image=background.jpeg
 class.Strawberry.image=stawberry.png
 dependency1.from=MyWorld
 dependency1.to=Label
@@ -72,5 +73,5 @@ target4.y=0
 version=3.0.0
 width=838
 world.lastInstantiated=MyWorld
-xPosition=507
-yPosition=52
+xPosition=47
+yPosition=235
