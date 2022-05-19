@@ -9,22 +9,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Dolphin extends Actor
 {
     GreenfootSound dolphinSound = new GreenfootSound("dolphin1.mp3");
+    GreenfootImage idle = new GreenfootImage("dolphin.png");
     
+    /**
+     * Constructor - The code that gets run one time when object is created
+     */
+    public Dolphin()
+    {
+        idle.scale(200,100);
+        setImage(idle);
+    }
+
     public void act()
     {
-        if(Greenfoot.isKeyDown("a"))
+        if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
         }
         
-        if(Greenfoot.isKeyDown("d"))
+        if(Greenfoot.isKeyDown("right"))
         {
             move(2);
-        }
-        
-        if(Greenfoot.isKeyDown("space"))
-        {
-            turn(2);
         }
     
         //Eat the strawberry
