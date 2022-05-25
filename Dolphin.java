@@ -10,25 +10,39 @@ public class Dolphin extends Actor
 {
     GreenfootSound dolphinSound = new GreenfootSound("dolphin1.mp3");
     GreenfootImage idle = new GreenfootImage("dolphin.png");
+    GreenfootImage idleLeft = new GreenfootImage("dolphin.png");
+    String facing = "right";
     
     /**
      * Constructor - The code that gets run one time when object is created
      */
     public Dolphin()
     {
-        idle.scale(200,100);
-        setImage(idle);
+        idle.scale(175,100);
+        idleLeft.mirrorHorizontally();
+        idleLeft.scale(175,100);
+        
+        if(facing.equals("right"))
+        {
+            setImage(idle);
+        }
+        else
+        {
+            setImage(idleLeft);
+        }
     }
 
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
+            setImage(idleLeft);
             move(-2);
         }
         
         if(Greenfoot.isKeyDown("right"))
         {
+            setImage(idle);
             move(2);
         }
     
