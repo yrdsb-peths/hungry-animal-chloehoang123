@@ -42,7 +42,7 @@ public class MyWorld extends World
         Strawberry strawberry = new Strawberry();
         addObject(strawberry, x, y);
         
-        strawberry.setSpeed(level+1);
+        strawberry.setSpeed(level);
     }
     
     public void increaseScore()

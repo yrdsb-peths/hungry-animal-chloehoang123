@@ -16,7 +16,7 @@ public class Strawberry extends Actor
     
     public void act()
     {
-        setLocation (getX(), getY()+2);
+        setLocation (getX(), getY() + speed);
         
         MyWorld world = (MyWorld) getWorld();
         if(getY() > world.getHeight())
