@@ -9,43 +9,74 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Dolphin extends Actor
 {
     GreenfootSound dolphinSound = new GreenfootSound("dolphin1.mp3");
-    GreenfootImage idle = new GreenfootImage("dolphin.png");
-    GreenfootImage idleLeft = new GreenfootImage("dolphin.png");
-    String facing = "right";
+    GreenfootImage[] idleRight = new GreenfootImage[5];
+    GreenfootImage[] idleLeft = new GreenfootImage[5];
     
+    String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
     /**
      * Constructor - The code that gets run one time when object is created
      */
     public Dolphin()
     {
-        idle.scale(175,100);
-        idleLeft.mirrorHorizontally();
-        idleLeft.scale(175,100);
+        for(int i = 0; i < idleRight.length; i++)
+        {
+            idleRight[i] = new GreenfootImage("images/dolphin_sprites/idle" + i + ".png");
+            idleRight[i].scale(150, 150);
+        }
+        
+        for(int i = 0; i < idleLeft.length; i++)
+        {
+            idleLeft[i] = new GreenfootImage("images/dolphin_sprites/idle" + i + ".png");
+            idleLeft[i].mirrorHorizontally();
+            idleLeft[i].scale(150, 150);
+        }
+        
+        animationTimer.mark();
+        
+        setImage(idleRight[0]);
+    }
+
+    /**
+     * Animate the dolphin
+     */
+    int imageIndex = 0;
+    public void animateDolphin()
+    {
+        if(animationTimer.millisElapsed() < 150)
+        {
+            return;
+        }
+        animationTimer.mark();
         
         if(facing.equals("right"))
         {
-            setImage(idle);
+           setImage(idleRight[imageIndex]);
+           imageIndex = (imageIndex + 1) % idleRight.length; 
         }
         else
         {
-            setImage(idleLeft);
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
         }
     }
-
+    
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            setImage(idleLeft);
             move(-2);
+            facing = "left";
         }
         
         if(Greenfoot.isKeyDown("right"))
         {
-            setImage(idle);
             move(2);
+            facing = "right";
         }
-    
+        
+        animateDolphin();
+        
         //Eat the strawberry
         if(isTouching(Strawberry.class))
         {
